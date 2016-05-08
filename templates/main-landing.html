@@ -1,0 +1,107 @@
+﻿
+<ion-view>
+	
+	<ion-nav-title>
+	 <div class='color-yellow text-center'>BackTaxi</div>
+  </ion-nav-title>
+	
+	<ion-content  scroll='false' drag-content="false">
+    <div id='main-land-container'>
+				<div id='set-top' class='target-box bg-dark' >
+					<div class='wrap'>
+						<label  class=" item-input">
+							<i class="icon ion-ios-search placeholder-icon color-yellow "></i>
+							<!-- <input class='color-yellow' ng-autocomplete id="autocomplete-to" type="text" ng-model="sel_place"  placeholder="Pickup location" details="autocomplete.details" > -->
+							<input ng-disabled='pop_status' class='color-yellow' id="autocompletefrom"  ng-model='start_box.location' type="text" ng-focus='disableTapFrom()'  placeholder="Nhập vị trí bắt đầu"  />
+				
+						</label>
+						
+					</div>
+					<div class='wrap' style='margin-top: 10px;'>
+						<label  class=" item-input">
+							<i class="icon ion-ios-search placeholder-icon color-yellow "></i>
+							<!-- <input class='color-yellow' ng-autocomplete id="autocomplete-to" type="text" ng-model="sel_place"  placeholder="Pickup location" details="autocomplete.details" > -->
+							<input ng-disabled='pop_status' class='color-yellow' id="autocompleteto" ng-model='end_box.location' type="text"  ng-focus='disableTapTo()'  placeholder="Nhập Vị trí muốn đến"  />
+
+						</label>
+					</div>	
+				</div>
+				
+				<!-- <input type="datetime-local"> -->
+				
+				<div id="map"   data-tap-disabled="true"  > <!-- -->
+				</div>
+				 <input id='Tripdate' type='datetime-local' ng-model='Trip_Date' />
+	  </div>
+	  
+	  <div id='my-pop' class='animation-styles bg-dark1' >
+		<!-- http://codepen.io/anon/pen/avNRwz -->
+		<!-- <my-date-time-picker placeholder="Enter Date here" title="Select Date" ng-model="my_model" /> -->
+		 
+			<div id='tab-hide' class='bg-dark1 visible'> 
+				<div class='head-box text-center'>
+					<div class='vertical-middle'>
+						<span class='color-yellow d-block '>{{selected_cab.cartype}}</span>
+						<span class='color-gery d-block'>Toyota etios, tata indigo, maruti dezire.</span>
+					</div>
+				</div>
+			
+				<div id='fare-breakup-box' class='text-center'>
+					<div class='head'>
+						<span >Giá Vé Breakup</span>
+					</div>
+					<!-- {{end_box}} -->
+					<div class="row ">
+						<div class="item-rate col col-33">
+							<div class='vertical-middle'>
+								<p class='color-gery'><b><span class='color-yellow f-size-20'>VNĐ </span> {{selected_cab.intailrate}}</b></p>
+								<p class='color-gery'> Trước {{ selected_cab.intialkm }}km</p>
+							</div>
+						</div>
+						<div class="item-rate col col-33">
+							<div class='vertical-middle'>
+								<p class='color-gery'><b><span class='color-yellow f-size-20'>VNĐ </span>{{selected_cab.standardrate}}/km</b></p>
+								<p class='color-gery'> Sau {{ selected_cab.intialkm }}km</p>
+							</div>
+						</div>
+						<div class="item-rate col col-33 no-border">
+							<div class='vertical-middle'>
+								<p class='color-gery'><b><span class='color-yellow f-size-20'>VNĐ </span>1/min</b></p>
+								<p class='color-gery'>Tỷ lệ thời gian Đặt xe</p>
+							</div>
+						</div>
+					</div>
+					<p class='color-gery f-size-12 p10'>Tỷ lệ Sân bay có thể khác nhau, có thể thu phí giờ cao điểm.</p>
+				</div>
+				
+			</div>
+			
+		<ion-scroll delegate-handle="calendarScroll" direction="x" class='bg-dark2'>
+					
+            <div class="row no-padding text-center ">
+                <div class="col col-25" ng-class="{active_cab : active_cab == $index }" ng-click='clicked_item($index)' ng-repeat="cab in cabs">
+                    <div class="col color-yellow">{{cab.cartype | limitTo:7 }}<span ng-show='cab.cartype.length > 7' >..</span></div>
+                    <img ng-src='img/{{cab.cartype}}.png' err-SRC="img/Sedan.png" style='width: 50px' />
+                    <!-- <div class="col color-gery">{{day.number}}</div> -->
+                    
+                </div>
+            </div>
+    </ion-scroll>
+	  </div>
+	  <div class='color-white text-center net-error' >Không có kết nối mạng!</div>	
+  </ion-content>
+    
+	<ion-footer-bar class="bg-dark" >
+		<div class='footer-box bg-dark color-yellow' ng-show='pop_status == false'>
+			<div class='w-50-p pull-left my-button h-100-p text-center border-r-yellow' ng-click='ride("later")'>Đặt Sau</div>
+			<div class='w-50-p pull-left my-button h-100-p text-center'  ng-click='ride("now")'>Đặt Bây Giờ</div>
+		</div>
+		
+		<div class='footer-box bg-dark color-yellow' ng-show='pop_status == true'>
+			<div class='w-50-p pull-left my-button h-100-p text-center border-r-yellow'  ng-click='cancel()' >Hủy</div>
+			<div class='w-50-p pull-left my-button h-100-p text-center'  ng-click='book()'>Đặt Xe</div>
+		</div>
+		
+	</ion-footer-bar>
+
+</ion-view>

@@ -1,0 +1,6 @@
+	
+		// http://christianvarga.com/how-to-calculate-driving-distance-between-2-locations-with-google-maps-api/
+// https://developers.google.com/maps/documentation/javascript/directions		
+
+
+https://github.com/driftyco/ionic/issues/1798   autocomplete

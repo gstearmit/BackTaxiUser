@@ -1,0 +1,114 @@
+﻿<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar id='dark-head' class="bar-dark" >
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+	  
+	  <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon color-yellow" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+	  <ion-nav-buttons side="right">
+			<button class="button button-icon button-clear ion-ios-heart-outline f-size-25 color-yellow" >
+			</button>
+	  </ion-nav-buttons>
+	</ion-nav-bar>
+    
+	<ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" class='bg-grey'>
+    <!-- <ion-header-bar class="bar-stable bg-grey">
+      <h1 class="title">Left</h1>
+    </ion-header-bar> -->
+    <ion-content has-bouncing="true">
+     
+        
+       <div id='menu-list' class='bg-grey' >
+			<!-- <ion-list>
+				<ion-item menu-close item-height="10px" ">
+				  Login
+				</ion-item>
+				<ion-item menu-close href="#/app/search">
+				  Search
+				</ion-item> 
+			</ion-list> -->
+			<div id='profile-box'> 
+				<div class='list'>
+					<a menu-close  class="item item-icon-left item-icon-right color-yellow bg-dark" ng-style="{'line-height': '20px'}" href="#/app/settings">
+						<!-- <img class='icon-30' src='img/logo.png'/>	 -->
+						<span>{{user_data.User_name}}</span>
+						<p class='color-gery'>{{user_data.Mobile}}</p>
+						<i class="icon ion-gear-b  color-yellow"></i>
+					</a>
+				</div>
+			</div>
+			
+			<div class='wrap-it'>
+				<div class='list'>
+				 
+				  <a  menu-close mainmenu class="item item-icon-left item-icon-right color-gery active-menu" href="#/app/landing">
+						<i class="icon ion-android-car f-size-25 color-d-gery"></i>
+						 Đặt Xe BackTaxi
+						<i class="icon ion-ios-arrow-forward f-size-25 color-d-gery"></i>
+				  </a>
+				  
+				  <a  menu-close mainmenu ng-click='load_trips()' class="item item-icon-left item-icon-right color-gery "  href="#/app/mytrip">
+						<i class="icon ion-speedometer f-size-25"></i>
+							Các Chuyến BackTaxi
+						<i class="icon ion-ios-arrow-forward f-size-25"></i>
+				  </a> 
+				  <a menu-close mainmenu  ng-click='load_card_rate()' class="item item-icon-left item-icon-right color-gery " href="#/app/rateCard">
+						<i class="icon ion-card f-size-25 color-d-gery"></i>
+							Bảng giá
+						<i class="icon ion-ios-arrow-forward f-size-25 color-d-gery"></i>
+				  </a>
+				  
+				 <!--  <a class="item item-icon-left item-icon-right color-gery " href="#">
+						<i class="icon ion-social-usd f-size-25 color-d-gery"></i>
+							Payments
+						<i class="icon ion-ios-arrow-forward  f-size-25 color-d-gery"></i>
+				  </a>
+				 <a class="item item-icon-left item-icon-right color-gery no-border " href="#">
+					<i class="icon ion-pricetags f-size-25 color-d-gery"></i>
+					Offers & Free Rides
+					<i class="icon ion-ios-arrow-forward f-size-25 color-d-gery"></i>
+				  </a> -->
+					
+				</div>
+			</div>
+			<div class='wrap-it'>
+				<div class='list'>
+				 
+				  <!-- <a class="item item-icon-left item-icon-right color-gery " href="#">
+					<i class="icon ion-information-circled f-size-25 color-d-gery"></i>
+						Emergency Contact
+					<i class="icon ion-ios-arrow-forward f-size-25 color-d-gery"></i>
+				  </a>
+				  
+				 <a class="item item-icon-left item-icon-right color-gery " href="#">
+					<i class="icon ion-ios-telephone f-size-25 color-d-gery"></i>
+						Call Support
+					<i class="icon ion-ios-arrow-forward f-size-25 color-d-gery"></i>
+				  </a>
+				 <a class="item item-icon-left item-icon-right color-gery no-border " href="#">
+					<i class="icon ion-ios-information f-size-25 color-d-gery"></i>
+						About Us
+					<i class="icon ion-ios-arrow-forward f-size-25 color-d-gery"></i>
+				  </a> -->
+					
+					<a  menu-close  ng-click='logout()' class="item item-icon-left item-icon-right color-gery no-border " >
+						<i class="icon ion-ios-information f-size-25 color-d-gery"></i>
+							Thoát
+						<i class="icon ion-ios-arrow-forward f-size-25 color-d-gery"></i>
+				  </a>
+					
+				</div>
+			</div>
+			
+			
+	   </div>
+      
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

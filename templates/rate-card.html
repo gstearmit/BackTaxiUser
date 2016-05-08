@@ -1,0 +1,44 @@
+<ion-view  class='bg-grey'>
+	<ion-nav-title>
+	  <div class='color-yellow text-center'>Bảng giá</div>
+  </ion-nav-title>
+	<ion-content>
+		<div class='h-100-p  '>
+			<div id='head-tab-area' class='row no-padding text-center color-gery bg-dark2'>
+				<div class='col  ' ng-class='{active: rateCard_menu_selected == $index }' ng-click='rateCard_menu_click($index)' ng-repeat='menu in rateCard_menu'><div class='Menu-tab-head '>{{menu.name}}</div></div>
+			</div>
+			<div id='rateCard-tab-area' class='visible'>
+				<ion-scroll direction="y" style='height: 100%'>
+					<div  ng-repeat='item in active_rateCard' style='padding-bottom: 20px'>
+						<div class='rate-head row bg-light'>
+							<div class='col h-100-p' style='padding-left:25px; '>
+								<img class='pull-right vertical-middle' src='img/{{item.cartype}}.png' err-SRC="img/Sedan.png" />
+								<span class='pull-left vertical-middle color-white'> {{item.cartype}} </span>
+							</div>
+						</div>
+						<div style='padding-left:20px;'>
+							<div class="row p-top-5 b-border-light">
+									<div class="col  p-10 col-center" >
+										<p class='color-gery no-margin'>Số {{item.intialkm}} kms đầu tiên</p>
+									</div>
+									<div class="col   p-10 text-right col-center" >
+										<span class='color-gery'>{{item.intailrate}} <span class='color-yellow'>VNĐ</span>  mỗi km</span>
+									</div>
+							</div>
+							<div class="row p-top-5 b-border-light">
+									<div class="col  p-10 col-center" >
+										<p class='color-gery no-margin'>Sau {{item.intialkm}} kms</p>
+									</div>
+									<div class="col   p-10 text-right col-center" >
+										 <span class='color-gery'> {{item.standardrate}} <span class='color-yellow'>VNĐ</span> mỗi km</span>
+									</div>
+							</div>
+						</div>
+					
+					</div>
+				</ion-scroll>		
+			</div>
+			<div class='color-white text-center net-error' >No network connection!</div>	
+		</div>
+	</ion-content>
+</ion-view>	
